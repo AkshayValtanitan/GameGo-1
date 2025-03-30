@@ -15,6 +15,12 @@
 
     </style>
 
+    <style name="Theme.Dark" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">#A9A9A9</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
 
 
     <!-- Custom Material Button Style -->

@@ -27,6 +27,8 @@ class Favorites : Activity() {
         val listView = findViewById<ListView>(R.id.listview)
 
 
+
+
         //val img = findViewById<ImageView>(R.id.fav_back)
         intent?.let{
             it.getStringExtra("title")?.let{
@@ -47,7 +49,7 @@ class Favorites : Activity() {
             Game("Monster Hunter World", "2018",4.4, R.drawable.mhw)
         )
 
-
+        favoriteGames = GamePreferences.loadFavorites(this)
 
 
         arrayAdapter = GameListAdapter(this, favoriteGames,
@@ -63,6 +65,13 @@ class Favorites : Activity() {
         btnBack.setOnClickListener {
             finish()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        favoriteGames.clear()
+        favoriteGames.addAll(GamePreferences.loadFavorites(this))
+        arrayAdapter.notifyDataSetChanged()
     }
 
 

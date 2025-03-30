@@ -22,6 +22,14 @@ class reviewPageActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review_page)
 
+        val allGames = listOf(
+            Game("Ye Quest", "2030", 1.1, R.drawable.ye),
+            Game("Helldivers", "2022", 2.2, R.drawable.helldivers),
+            Game("Black Myth Wukong", "2024", 3.3, R.drawable.bmw),
+            Game("Monster Hunter World", "2018", 4.4, R.drawable.mhw)
+        )
+
+
         val gameImg = findViewById<ImageView>(R.id.game_pic_rp)
         val gameTitle = findViewById<TextView>(R.id.game_title_rp)
         val gameRev = findViewById<TextView>(R.id.review_content)

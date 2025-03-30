@@ -8,6 +8,7 @@ import android.webkit.WebView
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import cit.edu.gamego.GamePreferences
 import cit.edu.gamego.R
 import cit.edu.gamego.data.Game
 import cit.edu.gamego.extensions.setupAndLoad
@@ -35,6 +36,7 @@ class GameListAdapter (
         val name = view.findViewById<TextView>(R.id.textview_name)
         val more = view.findViewById<ImageView>(R.id.iv_more)
         val game = listOfGame[position]
+        val heartButton = view.findViewById<ImageView>(R.id.heart)
 
         photo.setImageResource(game.photo)
         "${game.name} ${game.date}".also { name.text = it }
@@ -53,6 +55,15 @@ class GameListAdapter (
         view.setOnLongClickListener {
             onLongPress(position)
             true
+        }
+
+        heartButton.setOnClickListener {
+            val favorites = GamePreferences.loadFavorites(context)
+
+            if (favorites.none { it.name == game.name }) {
+                favorites.add(game)
+                GamePreferences.saveFavorites(context, favorites)
+            }
         }
         return view
     }

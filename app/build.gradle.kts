@@ -73,6 +73,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.google.android.material:material:1.10.0")
+
+
     // navigation drawer
     implementation(libs.material)
     implementation(libs.androidx.appcompat)

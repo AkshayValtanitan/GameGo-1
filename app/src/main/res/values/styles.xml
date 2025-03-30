@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="AppTheme" parent="Theme.Material3.Light">
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryVariant">#DDDDDD</item>
+        <item name="colorOnPrimary">#000000</item>
+    </style>
+</resources>
