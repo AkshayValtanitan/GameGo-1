@@ -11,26 +11,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="10dp" android:layout_marginTop="50dp" android:orientation="horizontal" android:gravity="center_vertical" android:background="#804fe6"> </LinearLayout>
-    <FrameLayout android:layout_width="match_parent" android:layout_height="500dp" android:orientation="horizontal" android:paddingTop="15dp" android:layout_gravity="center" android:background="#e620b4">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="10dp" android:layout_marginTop="50dp" android:orientation="horizontal" android:gravity="center_vertical"> </LinearLayout>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="500dp" android:orientation="horizontal" android:paddingTop="15dp" android:layout_gravity="center">
 
-        <EditText
+        <LinearLayout
             android:layout_width="370dp"
-            android:layout_height="wrap_content"
+            android:layout_height="43dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/searchbar"
             android:backgroundTint="#A9A9A9"
             android:padding="10dp"/>
-        <EditText
+
+        <LinearLayout
             android:layout_width="355dp"
-            android:layout_height="wrap_content"
+            android:layout_height="43dp"
             android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
             android:background="@drawable/searchbar"
+            android:padding="10dp"
+            android:gravity="center">
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/abtdev_back"
+            android:layout_marginTop="5dp"
+            android:layout_width="76dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/back_arrow"/>
+
+        <TextView
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
-            android:text="About the Developers"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:padding="10dp"/>
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="About The Developers"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
 <!--        <ImageView-->
 <!--            android:id="@+id/abme_devs_back"-->
@@ -40,7 +59,7 @@
 <!--            android:layout_marginLeft="30dp"-->
 <!--            android:src="@drawable/back_arrow"/>-->
 
-        <EditText
+        <LinearLayout
             android:backgroundTint="#A9A9A9"
             android:layout_width="355dp"
             android:layout_height="397dp"
@@ -146,7 +165,4 @@
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="10dp" android:orientation="horizontal" android:gravity="center_vertical" android:background="#c430c5"> </LinearLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="10dp" android:orientation="horizontal" android:gravity="center_vertical" android:background="#a23fd5"> </LinearLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="10dp" android:orientation="horizontal" android:gravity="center_vertical" android:background="#804fe6"> </LinearLayout>
 </LinearLayout>
