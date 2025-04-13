@@ -78,41 +78,19 @@ fun Context.toast(message: CharSequence) {
 }
 
 
-fun List<Game>.filterGames(query: String?): List<Game> {
-    if (query.isNullOrEmpty()) {
-        return this
-    }
-    val searchQuery = query.lowercase()
-    return this.filter {
-        it.name.lowercase().contains(searchQuery) || it.date.contains(searchQuery)
-    }
-}
-
-inline fun <reified T : Activity> Context.startActivityWithExtras(vararg extras: Pair<String, Any?>) {
-    val intent = Intent(this, T::class.java)
-    extras.forEach { (key, value) ->
-        when (value) {
-            is Int -> intent.putExtra(key, value)
-            is String -> intent.putExtra(key, value)
-            // Add other types as needed
-        }
-    }
-    startActivity(intent)
-}
-
 fun showDeleteDialog(position: Int) {
    print("skibidi")
 }
 
+object FavoritesDataHolder {
+    var title: String = ""
+    var releaseDate: String = ""
+    var imageRes: String = ""
+    var rating: String = ""
+    val isLiked: Boolean = true
+}
 
-//private fun more(game: Game) {
-//    startActivity(
-//        Intent(requireContext(), reviewPageActivity::class.java).apply{
-//            putExtra("title",game.name)
-//            putExtra("imageRes",game.photo)
-//        }
-//    )
-//}
+
 
 
 

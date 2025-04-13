@@ -11,14 +11,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import cit.edu.gamego.data.Game
+import cit.edu.gamego.data.Image
+import cit.edu.gamego.extensions.FavoritesDataHolder
 import cit.edu.gamego.helper.GameListAdapter
 
 class Favorites : Activity() {
 
     private lateinit var favoriteGames: MutableList<Game>
     private lateinit var arrayAdapter: GameListAdapter
-    private lateinit var date: String;
-    private lateinit var name: String;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorites)
@@ -27,29 +27,28 @@ class Favorites : Activity() {
         val listView = findViewById<ListView>(R.id.listview)
 
 
-
-
         //val img = findViewById<ImageView>(R.id.fav_back)
-        intent?.let{
-            it.getStringExtra("title")?.let{
-                name = it
-            }
-//            it.getIntExtra("imageRes",0).let{imageResId->
-//                if (imageResId != 0) {
-//                    img.setImageResource(imageResId)
-//                }
-//            }
-        }
-        //favoriteGames.add( Game(name,date,R.drawable.ye))
+//        var name: String = "Default Name"
+//        var rating: Double = 0.0
+//        var img: String = R.drawable.ye.toString()// fallback pic
 
         favoriteGames = mutableListOf(
-            Game("ye quest", "2030",1.1, R.drawable.ye),
-            Game("Helldivers", "2022",2.2, R.drawable.helldivers),
-            Game("Black Myth Wukong", "2024",3.3, R.drawable.bmw),
-            Game("Monster Hunter World", "2018",4.4, R.drawable.mhw)
+            Game("YE Quest", "2030", "1.1", Image(R.drawable.ye.toString()), " ", "The visionary's journey through a surreal rap universe.", false, "game_yequest", listOf("PS5", "PC"), "Yeezy Interactive", listOf("Adventure", "Rhythm"), listOf("Hip-Hop", "Satire"), listOf("YE Series"),listOf("Yeezy Productions"), "YQ"),
+            //Game("Helldivers", "2022",2.2, R.drawable.helldivers.toString()),
+//            Game("Black Myth Wukong", "2024",3.3, R.drawable.bmw.toString()),
+//            Game("Monster Hunter World", "2018",4.4, R.drawable.mhw.toString())
         )
 
-        favoriteGames = GamePreferences.loadFavorites(this)
+        val name = FavoritesDataHolder.title
+        val rating = FavoritesDataHolder.rating
+        val img = FavoritesDataHolder.imageRes ?: R.drawable.ye.toString()
+
+        //val releaseDate = FavoritesDataHolder.releaseDate
+
+        favoriteGames.add(Game(name,"2030",rating,Image(img)))
+
+
+        //favoriteGames.add( Game(name,date,1.1,Image(R.drawable.ye.toString())))
 
 
         arrayAdapter = GameListAdapter(this, favoriteGames,
@@ -65,13 +64,6 @@ class Favorites : Activity() {
         btnBack.setOnClickListener {
             finish()
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        favoriteGames.clear()
-        favoriteGames.addAll(GamePreferences.loadFavorites(this))
-        arrayAdapter.notifyDataSetChanged()
     }
 
 
